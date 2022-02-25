@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tatakae.mp3-7546efd8a9d2ee81d9f006865bd29905.mp3str"
+
+[deps]
+
+source_file="res://recursos/tatakae.mp3"
+dest_files=[ "res://.import/tatakae.mp3-7546efd8a9d2ee81d9f006865bd29905.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
