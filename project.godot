@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="nave2DTrabalho"
-run/main_scene="res://fase.tscn"
+run/main_scene="res://cenas/telaInicial.tscn"
 config/icon="res://icon.png"
 
 [display]

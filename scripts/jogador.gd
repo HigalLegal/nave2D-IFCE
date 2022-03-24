@@ -3,6 +3,8 @@ extends KinematicBody2D
 var aceleracao = 300
 const PRE_LASER = preload("res://cenas/laser.tscn")
 
+var gameOver = preload("res://cenas/telaGameOver.tscn")
+
 func _ready():
 	pass
 	
@@ -38,7 +40,7 @@ func _process(delta):
 	
 	move_and_slide(dir)
 	
-	if Input.is_action_just_pressed("atirar"):
+	if Input.is_action_just_pressed("atirar") and get_tree().get_nodes_in_group("laser").size() < 2:
 		laser()
 	
 	pass

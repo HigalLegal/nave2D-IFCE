@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://recursos/cenario game over.jpg" type="Texture" id=1]
+[ext_resource path="res://recursos/borderflamered.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Button.gd" type="Script" id=3]
+[ext_resource path="res://cenas/telaGameOver.gd" type="Script" id=4]
+[ext_resource path="res://recursos/audio espacial.mp3" type="AudioStream" id=5]
+[ext_resource path="res://recursos/asteroide.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Asteroide:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -214, 406 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Asteroide:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "animacao"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Asteroide:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -214, 406 ), Vector2( 759, 406 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Asteroide:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+
+[node name="telaGameOver" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.852405, 0.63125 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Asteroide" type="Sprite" parent="."]
+position = Vector2( -214, 406 )
+texture = ExtResource( 6 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 80.0
+margin_top = 460.0
+margin_right = 444.0
+margin_bottom = 554.0
+icon = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="audioEspacial" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="animacaoAsteroide" type="AnimationPlayer" parent="."]
+autoplay = "animacao"
+anims/RESET = SubResource( 1 )
+anims/animacao = SubResource( 2 )
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

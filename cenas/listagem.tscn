@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="listagem" type="Node2D"]
+
+[node name="Tree" type="Tree" parent="."]
+margin_right = 513.0
+margin_bottom = 803.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

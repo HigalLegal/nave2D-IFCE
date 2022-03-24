@@ -22,6 +22,7 @@ func _on_asteroide_area_entered(area):
 		explodir()
 		queue_free()
 		area.queue_free()
+		get_parent().pontuacao += 2
 	
 	pass
 func explodir():
@@ -32,4 +33,10 @@ func explodir():
 	explode.position.x += 50
 	get_parent().add_child(explode)
 	 
+	pass
+
+
+func _on_asteroide_body_entered(body):
+	get_tree().change_scene("res://cenas/telaGameOver.tscn")
+	
 	pass
